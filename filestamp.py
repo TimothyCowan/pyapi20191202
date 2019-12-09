@@ -2,7 +2,8 @@ import datetime
 from os import chdir, environ, path
 from platform import system
 from socket import gethostname
-# v1 - By Tim Cowan
+# Open a file and create a time/date stamp make the file if it dose not exist.
+# v1 - Tim Cowan
 
 your_name = gethostname()
 your_time = datetime.datetime.now()
