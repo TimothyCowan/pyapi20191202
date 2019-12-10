@@ -2,25 +2,21 @@ from pprint import pprint
 
 import requests
 
-POKE = 'https://pokeapi.co/api/v2/pokemon-habitat/'
-
-
 def main():
-    pokereq = requests.get(POKE)
-    for i in
-    pokereq2 = requests.get(POKE+'1')
-    pokejson = pokereq.json()
-    pokejson2 = pokereq2.json()
+    poke_request = 'https://pokeapi.co/api/v2/pokemon-habitat/'
+    pokejson = (requests.get(poke_request)).json()
+    ## count = 0
 
-    # pprint(pokejson)
-    # print('###################')
+    for area in pokejson['results']:  #prints each habitat
+        print('############' + area['name'])
+        ## count = count + 1
+        ## count += 1 (this is the same as above)
+        # new_req = poke_request + str(count)  #change orginal api url by cat'ing url with count++
+        # print(new_req)
+        area_lookup = (requests.get(area['url'])).json()
 
-    for abl in pokejson['results']:
-        print('>'+abl['name'])
-        for indx in pokejson2['pokemon_species']:
-            print(indx['name'])
-
-
-
+        for pokemon in area_lookup['pokemon_species']:  #todo Fix: Bug at start of this for loop
+            print(pokemon['name'])
+            
 if __name__ == "__main__":
     main()

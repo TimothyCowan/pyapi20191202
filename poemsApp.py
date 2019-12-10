@@ -9,6 +9,6 @@ with open('poems.json') as poemj:
 # randomly select poem
 x = random.choice(list(pythonpoems.values())).replace(".", ".\n")
 print(x)
-
+random.randrange()
 
 
